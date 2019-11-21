@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
                             setNumber();
 
                             showToast("Correct");
-                            TextView Scores = (TextView) findViewById(R.id.scoreText);
+
                             score ++;
                             progressBar.setProgress(score);
                             endGame();
