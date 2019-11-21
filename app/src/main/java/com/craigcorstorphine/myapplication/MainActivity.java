@@ -79,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
                             score ++;
                             progressBar.setProgress(score);
                             endGame();
+                            answer_field.setText("");
 
 
 
@@ -86,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
                         else {
                             showToast("wrong");
                             setNumber();
+                            answer_field.setText("");
                         }
 
                     }
@@ -158,10 +160,13 @@ public class MainActivity extends AppCompatActivity {
             alert.setTitle("Game Over");
             alert.setCancelable(false);
             alert.setMessage("Well done!!! you got  " + score + " correct!");
-            alert.setPositiveButton("Close Application", new DialogInterface.OnClickListener() {
+            alert.setPositiveButton("Well done, try again?", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    finish();
+                    setNumber();
+                    progressBar.setProgress(0);
+                    score = 0;
+
                 }
             });
             alert.show();
