@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.graphics.drawable.Drawable;
+
 import android.os.Bundle;
 import android.view.View;
 import android.os.Handler;
@@ -128,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
         // Create a new random number
         final int value2 = randomNumberGenerator.nextInt(10);
 
-        // Set the right dice image using an image from the diceArray.
+        // Set the right number image using an image from the numberArray.
         rightNumber.setImageResource(numberArray[value2]);
         answer_field = findViewById(R.id.answer_field);
 
