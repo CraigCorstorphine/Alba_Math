@@ -148,27 +148,26 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(MainActivity.this, text, Toast.LENGTH_LONG).show();
     }
     private void endGame() {
-        // This takes the modulus. Not a division.
-
 
         // Present an alert dialog if we reach the end.
         if(score == 10) {
-            // Don't use:
-            // AlertDialog.Builder alert = new AlertDialog.Builder(getApplicationContext());
-            AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
-
-            alert.setTitle("Game Over");
-            alert.setCancelable(false);
-            alert.setMessage("Well done!!! you got  " + score + " correct!");
-            alert.setPositiveButton("Well done, try again?", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    setNumber();
-                    progressBar.setProgress(0);
-                    score = 0;
-
-                }
-            });
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setMessage("Well done! You got to 10! Would you like to try again?")
+                    .setCancelable(false)
+                    .setPositiveButton("No", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            finish();
+                        }
+                    })
+                    .setNegativeButton("Yes", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.cancel();
+                            setNumber();
+                            progressBar.setProgress(0);
+                            score = 0;
+                        }
+                    });
+            AlertDialog alert = builder.create();
             alert.show();
         }
 
