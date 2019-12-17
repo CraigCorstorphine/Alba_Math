@@ -12,7 +12,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
-import android.widget.TextClock;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -103,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
 
         final ImageView rightNumber = findViewById(R.id.right_number);
         final int[] numberArray = new int[]{
-                R.drawable.number_0,
+                R.drawable.numberzero,
                 R.drawable.number1,
                 R.drawable.number2,
                 R.drawable.number3,
@@ -113,12 +112,15 @@ public class MainActivity extends AppCompatActivity {
                 R.drawable.number7,
                 R.drawable.number8,
                 R.drawable.number9,
+                R.drawable.number10
+
         };
         // Create a random number generator
         final Random randomNumberGenerator = new Random();
 
 
-        final int value1 = randomNumberGenerator.nextInt(10);
+        int value1 = randomNumberGenerator.nextInt(11);
+
 
 
 
@@ -126,7 +128,8 @@ public class MainActivity extends AppCompatActivity {
         leftNumber.setImageResource(numberArray[value1]);
 
         // Create a new random number
-        final int value2 = randomNumberGenerator.nextInt(10);
+        int value2 = randomNumberGenerator.nextInt(11);
+
 
         // Set the right number image using an image from the numberArray.
         rightNumber.setImageResource(numberArray[value2]);
